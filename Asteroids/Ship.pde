@@ -25,9 +25,13 @@ class Ship {
     if (downkey) vel.sub(dir);
     if (leftkey) dir.rotate(radians(-3));
     if (rightkey) dir.rotate(radians(3));
+    if (spacekey) myBullets.add(new Bullet());
     
-    if (loc.x < -15) loc.x = width + 15;
-    if (loc.x > width + 15) loc.x = -15;
+    // Borders 
+    if (loc.x < -25) loc.x = width + 25;
+    if (loc.x > width + 25) loc.x = -25;
+    if (loc.y < -25) loc.y = height + 25;
+    if (loc.y > height + 25) loc.y = -25;
     
     
   }
