@@ -8,6 +8,7 @@ void setup() {
   
   size(800,600);
   imageMode(CENTER);
+  rectMode(CENTER);
   playerShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(playerShip);
@@ -20,6 +21,7 @@ void setup() {
 void draw() {
   
   background(0);
+  println(myObjects.size());
   
   int i = 0;
   while (i < myObjects.size()) {

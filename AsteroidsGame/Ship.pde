@@ -21,13 +21,18 @@ class Ship extends GameObject {
     
     shotTimer ++;
     
-    if(upkey) vel.add(dir);
+    if(upkey) {
+      vel.add(dir);
+      myObjects.add(new Fire());
+    }
     if (downkey) vel.sub(dir);
     if (leftkey) dir.rotate(radians(-3));
     if (rightkey) dir.rotate(radians(3));
-    if (shotTimer >= threshold) {
-      if (spacekey) myObjects.add(new Bullet());
-      shotTimer = 0;
+    if (shotTimer > threshold) {
+      if (spacekey) {
+        myObjects.add(new Bullet());
+        shotTimer = 0;
+      }
     }
   }
   
@@ -41,7 +46,8 @@ class Ship extends GameObject {
     noFill();
     stroke(255);
     strokeWeight(1);
-    triangle(-25,-25,-25,25,50,0);
+    //triangle(-25,-25,-25,25,50,0);
+    quad(-20,-20,-13,0,-20,20,40,0);
       
     
     popMatrix();
