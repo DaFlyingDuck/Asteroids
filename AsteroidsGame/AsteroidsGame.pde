@@ -28,7 +28,11 @@ void draw() {
     myObj.show();
     myObj.act();
     
-    i ++;
+    if (myObj.lives == 0) {
+      myObjects.remove(i);
+    } else {
+      i ++;
+    } 
   }
   
   

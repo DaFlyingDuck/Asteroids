@@ -3,6 +3,7 @@ class GameObject {
   int lives;
   PVector loc;
   PVector vel;
+  int size;
   
   GameObject() {
     

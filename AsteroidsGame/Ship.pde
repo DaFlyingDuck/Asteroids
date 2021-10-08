@@ -1,7 +1,7 @@
 class Ship extends GameObject {
   
   PVector dir;
-  
+  int shotTimer, threshold;
   
   Ship() {
     
@@ -9,7 +9,8 @@ class Ship extends GameObject {
    loc = new PVector(width/2, height/2); 
    vel = new PVector(0,0);
    dir = new PVector(0,-0.1);
-    
+   shotTimer = 0;
+   threshold = 20;
     
   }
   
@@ -18,11 +19,16 @@ class Ship extends GameObject {
     
     super.act();
     
+    shotTimer ++;
+    
     if(upkey) vel.add(dir);
     if (downkey) vel.sub(dir);
     if (leftkey) dir.rotate(radians(-3));
     if (rightkey) dir.rotate(radians(3));
-    if (spacekey) myObjects.add(new Bullet());
+    if (shotTimer >= threshold) {
+      if (spacekey) myObjects.add(new Bullet());
+      shotTimer = 0;
+    }
   }
   
   void show() {
