@@ -14,6 +14,8 @@ class Bullet extends GameObject {
   }
   
   
+  
+  
   void act() {
    
     super.act();

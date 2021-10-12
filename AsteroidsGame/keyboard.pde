@@ -16,7 +16,4 @@ void keyReleased() {
   if (keyCode == RIGHT) rightkey = false;
   if (keyCode == ' ') spacekey = false;
   
-  
-  
-  
 }
