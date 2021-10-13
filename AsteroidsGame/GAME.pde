@@ -1,7 +1,16 @@
 void game() {
   
+  timerUFO ++;
+  if (timerUFO >= 1800) {
+    myObjects.add(new UFO());
+    timerUFO = 0;
+  }
+  
   background(0);
   println(myObjects.size());
+  
+  timerUFO ++;
+  
   
   int i = 0;
   while (i < myObjects.size()) {
@@ -16,6 +25,5 @@ void game() {
       i ++;
     } 
   }
-  myObjects.add(new UFOBullet());
   
 }

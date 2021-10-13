@@ -2,23 +2,14 @@ class UFOBullet extends GameObject {
  
   int timerb;
   
-  UFOBullet() {
+  UFOBullet(float j, float k) {
     
-    timerb = 60;
+    timerb = 150;
     lives = 1;
     size = 8;
-    int j  = 0;
-    while (j < myObjects.size()) {
-      GameObject myObj = myObjects.get(j);
-      if (myObj instanceof UFO) {
-        loc.x = myObj.loc.x;
-        loc.y = myObj.loc.y;
-        vel.x = myObj.loc.x - loc.x;
-        vel.y = myObj.loc.y - loc.y;
-        j++;
-      }
-    }
-    vel.setMag(6);
+    loc = new PVector(j, k);
+    vel = new PVector(playerShip.loc.x - loc.x, playerShip.loc.y - loc.y);
+    vel.setMag(4);
     
   }
   

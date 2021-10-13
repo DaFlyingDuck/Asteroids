@@ -8,7 +8,7 @@ class Ship extends GameObject {
    lives = 3; 
    loc = new PVector(width/2, height/2); 
    vel = new PVector(0,0);
-   dir = new PVector(0,-0.1);
+   dir = new PVector(0,-0.08);
    shotTimer = 0;
    threshold = 20;
     
@@ -24,6 +24,8 @@ class Ship extends GameObject {
     if(upkey) {
       vel.add(dir);
       myObjects.add(new Fire());
+    } else {
+      vel.setMag(vel.mag() * 0.999);
     }
     if (downkey) vel.sub(dir);
     if (leftkey) dir.rotate(radians(-3));

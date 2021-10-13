@@ -9,6 +9,8 @@ final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
 
+int timerUFO;
+
 
 void setup() {
   
@@ -17,14 +19,15 @@ void setup() {
   rectMode(CENTER);
   
   MODE = GAME;
-  
+ 
   playerShip = new Ship();
   myObjects = new ArrayList<GameObject>();
   myObjects.add(playerShip);
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
-  myObjects.add(new UFO());
+  
+  timerUFO = 1400;
 }
 
 
