@@ -1,6 +1,5 @@
 class Ship extends GameObject {
   
-  PVector dir;
   int shotTimer, threshold;
   
   Ship() {

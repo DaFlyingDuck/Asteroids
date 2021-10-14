@@ -1,7 +1,5 @@
 class Asteroid extends GameObject {
   
-  
-  
   //Original Asteroids
   Asteroid() {
     
@@ -34,11 +32,14 @@ class Asteroid extends GameObject {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) <= size/2 + myObj.size/2) {
           myObj.lives = 0;
           lives = 0;
+          
+          // Create new particles when asteroid destroyed
           int l = 0;
           while (l < 15) {
             myObjects.add(new Particles(loc.x, loc.y));
             l ++;
           }
+          
           if (size > 25) { 
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
@@ -50,14 +51,24 @@ class Asteroid extends GameObject {
     }
     
     //Collision with Ship
-    //int j = 0;
-    //while (j < myObjects.size()) {
-    //   GameObject myObj = myObjects.get(j);
-    //   if (myObj instanceof Ship) {
-    //     if(loc.x - myObj.loc 
-           
-    //   }
-    //}
+    int j = 0;
+    while (j < myObjects.size()) {
+       GameObject myObj = myObjects.get(j);
+       if (myObj instanceof Ship) {
+          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13) {
+            println("jon is gae");
+            lives = 0;
+            myObj.lives --;
+            if (size > 25) { 
+            myObjects.add(new Asteroid(size/2, loc.x, loc.y));
+            myObjects.add(new Asteroid(size/2, loc.x, loc.y));
+          }
+            
+          }
+       }
+       
+       j ++;
+    }
     
   }
   
