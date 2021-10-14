@@ -34,6 +34,11 @@ class Asteroid extends GameObject {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) <= size/2 + myObj.size/2) {
           myObj.lives = 0;
           lives = 0;
+          int l = 0;
+          while (l < 15) {
+            myObjects.add(new Particles(loc.x, loc.y));
+            l ++;
+          }
           if (size > 25) { 
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
@@ -43,6 +48,16 @@ class Asteroid extends GameObject {
       
       i ++;
     }
+    
+    //Collision with Ship
+    //int j = 0;
+    //while (j < myObjects.size()) {
+    //   GameObject myObj = myObjects.get(j);
+    //   if (myObj instanceof Ship) {
+    //     if(loc.x - myObj.loc 
+           
+    //   }
+    //}
     
   }
   
