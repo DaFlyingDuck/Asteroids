@@ -24,6 +24,19 @@ class UFOBullet extends GameObject {
     if (timerb == 0) {
       lives = 0;
     }
+    
+    int j = 0;
+    while (j < myObjects.size()) {
+       GameObject myObj = myObjects.get(j);
+       if (myObj instanceof Ship) {
+          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13) {
+            lives = 0;
+            myObj.lives --;
+          }
+       }
+       
+       j ++;
+    }
 
     
   }

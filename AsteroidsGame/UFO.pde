@@ -39,6 +39,7 @@ class UFO extends GameObject {
     if (loc.y < -55) loc.y = lives = 0;
     if (loc.y > height + 55) lives = 0;
   
+    // Collision with Bullet
     int k = 0;
     while (k < myObjects.size()) {
       GameObject myObj = myObjects.get(k);
@@ -46,11 +47,17 @@ class UFO extends GameObject {
         if (dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) <= size/2 + myObj.size/2) {
           myObj.lives = 0;
           lives = 0;
+          int l = 0;
+          while (l < 30) {
+            myObjects.add(new Explosion(loc.x, loc.y));
+            l ++;
+          }
         }
       }
       
       k ++;
     }
+    
     
   }
   

@@ -1,6 +1,6 @@
 //Asteroids
 
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, shiftkey;
 Ship playerShip;
 ArrayList<GameObject> myObjects;
 
@@ -27,7 +27,7 @@ void setup() {
   myObjects.add(new Asteroid());
   myObjects.add(new Asteroid());
   
-  timerUFO = 1400;
+  timerUFO = 600;
 }
 
 

@@ -35,7 +35,7 @@ class Asteroid extends GameObject {
           
           // Create new particles when asteroid destroyed
           int l = 0;
-          while (l < 15) {
+          while (l < 20) {
             myObjects.add(new Particles(loc.x, loc.y));
             l ++;
           }
@@ -56,7 +56,6 @@ class Asteroid extends GameObject {
        GameObject myObj = myObjects.get(j);
        if (myObj instanceof Ship) {
           if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13) {
-            println("jon is gae");
             lives = 0;
             myObj.lives --;
             if (size > 25) { 

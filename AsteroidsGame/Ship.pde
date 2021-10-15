@@ -20,6 +20,7 @@ class Ship extends GameObject {
     
     shotTimer ++;
     
+    //movement code
     if(upkey) {
       vel.add(dir);
       myObjects.add(new Fire());
@@ -35,6 +36,14 @@ class Ship extends GameObject {
         shotTimer = 0;
       }
     }
+    
+    //Teleport Code
+    if (shiftkey) {
+      
+      
+    }
+    
+    
   }
   
   void show() {

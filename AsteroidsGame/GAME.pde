@@ -1,15 +1,14 @@
 void game() {
   
   timerUFO ++;
-  if (timerUFO >= 1800) {
+  if (timerUFO >= 1000) {
     myObjects.add(new UFO());
     timerUFO = 0;
   }
   
   background(0);
-  println(myObjects.size());
+  println(playerShip.lives);
   
-  timerUFO ++;
   
   
   int i = 0;
@@ -25,5 +24,7 @@ void game() {
       i ++;
     } 
   }
+  
+  if (playerShip.lives <= 0) MODE = GAMEOVER;
   
 }
