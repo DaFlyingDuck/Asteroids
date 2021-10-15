@@ -9,7 +9,7 @@ class UFOBullet extends GameObject {
     size = 8;
     loc = new PVector(j, k);
     vel = new PVector(playerShip.loc.x - loc.x, playerShip.loc.y - loc.y);
-    vel.setMag(4);
+    vel.setMag(3);
     
   }
   
@@ -25,13 +25,17 @@ class UFOBullet extends GameObject {
       lives = 0;
     }
     
+    
+    //Collision with Ship
     int j = 0;
     while (j < myObjects.size()) {
        GameObject myObj = myObjects.get(j);
        if (myObj instanceof Ship) {
-          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13) {
+          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13 && playerShip.immune < 0) {
             lives = 0;
             myObj.lives --;
+            playerShip.immune = 60;
+            
           }
        }
        

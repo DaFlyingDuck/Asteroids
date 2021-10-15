@@ -5,7 +5,7 @@ class Asteroid extends GameObject {
     
     lives = 1;
     loc = new PVector(random(0, width), random(0, height));
-    vel = new PVector(0,1);
+    vel = new PVector(0,0.7);
     vel.rotate(random(0, TWO_PI));
     size = 100;
     
@@ -15,7 +15,7 @@ class Asteroid extends GameObject {
   Asteroid(int s, float x, float y) {
     lives = 1;
     loc = new PVector(x,y);
-    vel = new PVector(0,1);
+    vel = new PVector(0,0.8);
     vel.rotate(random(0, TWO_PI));
     size = s;
   }
@@ -55,13 +55,15 @@ class Asteroid extends GameObject {
     while (j < myObjects.size()) {
        GameObject myObj = myObjects.get(j);
        if (myObj instanceof Ship) {
-          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 13) {
+          if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 10 && playerShip.immune < 0) {
             lives = 0;
             myObj.lives --;
+            playerShip.immune = 60;
+            
             if (size > 25) { 
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
             myObjects.add(new Asteroid(size/2, loc.x, loc.y));
-          }
+            }
             
           }
        }
