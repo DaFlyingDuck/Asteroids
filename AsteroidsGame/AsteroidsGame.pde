@@ -8,8 +8,13 @@ int MODE;
 final int INTRO = 0;
 final int GAME = 1;
 final int GAMEOVER = 2;
+final int PAUSE = 3;
 
 int timerUFO;
+int astNum;
+int playTimer;
+
+boolean WIN;
 
 
 void setup() {
@@ -18,16 +23,11 @@ void setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   
-  MODE = GAME;
- 
-  playerShip = new Ship();
-  myObjects = new ArrayList<GameObject>();
-  myObjects.add(playerShip);
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
-  myObjects.add(new Asteroid());
+  MODE = INTRO;
+  WIN = false;
   
-  timerUFO = 600;
+  myObjects = new ArrayList<GameObject>();
+  
 }
 
 
@@ -41,6 +41,9 @@ void draw() {
   }
   if (MODE == GAMEOVER) {
     gameover();
+  }
+  if (MODE == PAUSE) {
+    pause();
   }
 
 }

@@ -19,3 +19,13 @@ void keyReleased() {
   if (keyCode == SHIFT) shiftkey = false;
   
 }
+
+void mouseClicked() {
+  
+  if (MODE == INTRO) introClicked();
+  if (MODE == GAME) gameClicked();
+  if (MODE == GAMEOVER) gameoverClicked();
+  if (MODE == PAUSE) pauseClicked();
+  
+  
+}

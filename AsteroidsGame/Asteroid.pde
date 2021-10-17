@@ -56,15 +56,8 @@ class Asteroid extends GameObject {
        GameObject myObj = myObjects.get(j);
        if (myObj instanceof Ship) {
           if(dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + 10 && playerShip.immune < 0) {
-            lives = 0;
             myObj.lives --;
             playerShip.immune = 60;
-            
-            if (size > 25) { 
-            myObjects.add(new Asteroid(size/2, loc.x, loc.y));
-            myObjects.add(new Asteroid(size/2, loc.x, loc.y));
-            }
-            
           }
        }
        

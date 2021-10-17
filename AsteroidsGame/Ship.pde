@@ -3,6 +3,8 @@ class Ship extends GameObject {
   int shotTimer, threshold;
   float immune;
   PVector randomloc;
+  
+  int tTimer;
   boolean safe = true;
   int tcheck;
   int tglitch; // stops ship from glitching around
@@ -16,6 +18,7 @@ class Ship extends GameObject {
    shotTimer = 0;
    threshold = 20;
    immune = 60;
+   tTimer = 0;
     
   }
   
@@ -26,6 +29,7 @@ class Ship extends GameObject {
     
     shotTimer ++;
     immune --;
+
     
     //movement code
     if(upkey) {
@@ -47,8 +51,9 @@ class Ship extends GameObject {
     }
     
     //Teleport Code
+    tTimer ++;
     tglitch ++;
-    if (shiftkey) {
+    if (shiftkey && tTimer > 900) {
       tglitch = 0;
       immune = 2;
       tcheck = 0;
@@ -70,16 +75,16 @@ class Ship extends GameObject {
           } else if (myObj instanceof UFOBullet && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 250 + myObj.size){
             safe = false;
           } else {
-            //safe = true;
-       
+            tcheck = 0;
+            tTimer = 0;
+            //successful teleport
+            loc = new PVector(randomloc.x, randomloc.y);
           }
           i ++;
           tcheck ++;
         }
       }
-      tcheck = 0;
-      //successful teleport
-      loc = new PVector(randomloc.x, randomloc.y);
+
 
     }
             
@@ -87,20 +92,42 @@ class Ship extends GameObject {
   
   void show() {
     
+    // Draw Spaceship
     pushMatrix();
     translate(loc.x,loc.y);
     rotate(dir.heading());
-    
-    // Draw Spaceship
     noFill();
     if (immune >= 0) stroke(255,0,0);
     if (immune < 0) stroke(0,255,0);
     strokeWeight(1);
     //triangle(-25,-25,-25,25,50,0);
     if (tglitch > 4) quad(-15,-15,-9,0,-15,15,30,0);
-      
-    
     popMatrix();
+    
+    // Telelport Timer Rectangle
+    rectMode(CORNER);
+    noStroke();
+    
+    //Timer not done
+    if (tTimer <= 900) {
+      fill(255,0,0);
+      rect(50, height - 100, tTimer/6, 50);
+    }   
+    
+    //Timer done
+    if (tTimer > 900) {
+      fill(0,0,255);
+      rect(50, height - 100, 150, 50);
+    }
+    
+    noFill();
+    strokeWeight(4);
+    stroke(255);
+    rect(50, height - 100, 150, 50);
+    strokeWeight(1);
+    rectMode(CENTER);
+    
+    
     
   }
   
