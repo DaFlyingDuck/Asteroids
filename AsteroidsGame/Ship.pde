@@ -74,15 +74,17 @@ class Ship extends GameObject {
             safe = false;
           } else if (myObj instanceof UFOBullet && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 250 + myObj.size){
             safe = false;
-          } else {
-            tcheck = 0;
-            tTimer = 0;
-            //successful teleport
-            loc = new PVector(randomloc.x, randomloc.y);
           }
+        }
+        
           i ++;
           tcheck ++;
         }
+        tcheck = 0;
+        tTimer = 0;
+        //successful teleport
+        loc = new PVector(randomloc.x, randomloc.y);
+        
       }
 
 
