@@ -1,4 +1,5 @@
 void game() {
+
   
   timerUFO ++;
   if (timerUFO >= 1000) {
@@ -13,7 +14,12 @@ void game() {
   }
   
   background(0);
-  println(playerShip.lives);
+  //println(playerShip.lives);  
+  fill(255);
+  textSize(49);
+  stroke(255);
+  text(playerShip.lives, width/2, 100);
+  
   
   
   //Go thru all objects

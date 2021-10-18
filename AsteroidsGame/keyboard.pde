@@ -5,7 +5,7 @@ void keyPressed() {
   if (keyCode == LEFT) leftkey = true;
   if (keyCode == RIGHT) rightkey = true;
   if (keyCode == ' ') spacekey = true;
-  if (keyCode == SHIFT) shiftkey = true;
+  if (keyCode == CONTROL) shiftkey = true;
   
 }
 
@@ -16,7 +16,7 @@ void keyReleased() {
   if (keyCode == LEFT) leftkey = false;
   if (keyCode == RIGHT) rightkey = false;
   if (keyCode == ' ') spacekey = false;
-  if (keyCode == SHIFT) shiftkey = false;
+  if (keyCode == CONTROL) shiftkey = false;
   
 }
 

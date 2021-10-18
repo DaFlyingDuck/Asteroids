@@ -53,12 +53,12 @@ class Ship extends GameObject {
     //Teleport Code
     tTimer ++;
     tglitch ++;
-    if (shiftkey && tTimer > 900) {
+    if (shiftkey && tTimer > 10) {
       tglitch = 0;
       immune = 2;
       tcheck = 0;
       boolean safe = false;
-      while (safe == false && tcheck < 150) {
+      while (safe == false && tcheck < 150000) {
         
         //teleport somewhere random
         randomloc = new PVector(random(100,width-100), random(100,height-100));
@@ -68,29 +68,36 @@ class Ship extends GameObject {
         safe = true;
         while (i < myObjects.size()) {
           GameObject myObj = myObjects.get(i);
-          if (myObj instanceof Asteroid && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 250 + myObj.size) {
+          if (myObj instanceof Asteroid && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 150 + myObj.size) {
             safe = false;
-          } else if (myObj instanceof UFO && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 250 + myObj.size) {
+          } else if (myObj instanceof UFO && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 150 + myObj.size) {
             safe = false;
-          } else if (myObj instanceof UFOBullet && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 250 + myObj.size){
+          } else if (myObj instanceof UFOBullet && dist(randomloc.x, randomloc.y, myObj.loc.x, myObj.loc.y) < 150 + myObj.size){
             safe = false;
           }
-        }
-        
           i ++;
+
+        }
+
           tcheck ++;
         }
-        tcheck = 0;
-        tTimer = 0;
-        //successful teleport
-        loc = new PVector(randomloc.x, randomloc.y);
+        if (safe) {
+          tcheck = 0;
+          tTimer = 0;
+          //successful teleport
+          loc = new PVector(randomloc.x, randomloc.y);
+        }
+        else
+        {
+          println("could not find a spot");
+        }
         
       }
 
 
     }
             
-  }
+
   
   void show() {
     
