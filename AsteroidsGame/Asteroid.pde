@@ -69,7 +69,7 @@ class Asteroid extends GameObject {
   void show() {
     
     noFill();
-    stroke(255);
+    stroke(pink);
     circle(loc.x,loc.y, size);
     
   }

@@ -1,20 +1,14 @@
 void pause() {
   
   
-  print("hi");
-  
-  
-  
-  
-  
-  
-  
+  print("yo");
+  if (pkey) MODE = GAME;  
+ 
 }
 
 void pauseClicked() { 
   
   
-  MODE = GAME;
-  
+  print("hello");
   
 }

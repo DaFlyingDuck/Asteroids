@@ -30,8 +30,14 @@ class Bullet extends GameObject {
   
   void show() {
     
-    stroke(255);
-    noFill();
+    if (playerShip.immune >= 0){
+      stroke(green);
+      fill(green);
+    }
+    if (playerShip.immune < 0) {
+      stroke(blue);
+      fill(blue);
+    }
     circle(loc.x, loc.y, size);
     
     

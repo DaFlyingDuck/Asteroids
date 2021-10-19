@@ -5,7 +5,8 @@ void keyPressed() {
   if (keyCode == LEFT) leftkey = true;
   if (keyCode == RIGHT) rightkey = true;
   if (keyCode == ' ') spacekey = true;
-  if (keyCode == CONTROL) shiftkey = true;
+  if (keyCode == SHIFT) shiftkey = true;
+  if (keyCode == 'P') pkey = true;
   
 }
 
@@ -16,11 +17,12 @@ void keyReleased() {
   if (keyCode == LEFT) leftkey = false;
   if (keyCode == RIGHT) rightkey = false;
   if (keyCode == ' ') spacekey = false;
-  if (keyCode == CONTROL) shiftkey = false;
+  if (keyCode == SHIFT) shiftkey = false;
+  if (keyCode == 'P') pkey = false;
   
 }
 
-void mouseClicked() {
+void mouseReleased() {
   
   if (MODE == INTRO) introClicked();
   if (MODE == GAME) gameClicked();

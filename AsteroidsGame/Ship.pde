@@ -53,7 +53,7 @@ class Ship extends GameObject {
     //Teleport Code
     tTimer ++;
     tglitch ++;
-    if (shiftkey && tTimer > 10) {
+    if (shiftkey && tTimer > 900) {
       tglitch = 0;
       immune = 2;
       tcheck = 0;
@@ -105,36 +105,18 @@ class Ship extends GameObject {
     pushMatrix();
     translate(loc.x,loc.y);
     rotate(dir.heading());
-    noFill();
-    if (immune >= 0) stroke(255,0,0);
-    if (immune < 0) stroke(0,255,0);
+    if (immune >= 0){
+      stroke(green);
+      fill(green);
+    }
+    if (immune < 0) {
+      stroke(blue);
+      fill(blue);
+    }
     strokeWeight(1);
     //triangle(-25,-25,-25,25,50,0);
     if (tglitch > 4) quad(-15,-15,-9,0,-15,15,30,0);
     popMatrix();
-    
-    // Telelport Timer Rectangle
-    rectMode(CORNER);
-    noStroke();
-    
-    //Timer not done
-    if (tTimer <= 900) {
-      fill(255,0,0);
-      rect(50, height - 100, tTimer/6, 50);
-    }   
-    
-    //Timer done
-    if (tTimer > 900) {
-      fill(0,0,255);
-      rect(50, height - 100, 150, 50);
-    }
-    
-    noFill();
-    strokeWeight(4);
-    stroke(255);
-    rect(50, height - 100, 150, 50);
-    strokeWeight(1);
-    rectMode(CENTER);
     
     
     

@@ -1,5 +1,6 @@
 void game() {
 
+  if (pkey) MODE = PAUSE;
   
   timerUFO ++;
   if (timerUFO >= 1000) {
@@ -16,9 +17,36 @@ void game() {
   background(0);
   //println(playerShip.lives);  
   fill(255);
-  textSize(49);
+  textSize(40);
   stroke(255);
+  textAlign(CENTER);
   text(playerShip.lives, width/2, 100);
+  
+  //Teleport Timer
+    rectMode(CORNER);
+    noStroke();
+    
+    //Timer not done
+    if (playerShip.tTimer <= 900) {
+      fill(pink);
+      rect(50, height - 100, playerShip.tTimer/6, 50);
+    }   
+    
+    //Timer done
+    if (playerShip.tTimer > 900) {
+      fill(blue);
+      rect(50, height - 100, 150, 50);
+      
+      textSize(18);
+      fill(255);
+      text("Press SHIFT to Teleport", 125, height - 110);
+    }
+    noFill();
+    strokeWeight(4);
+    stroke(255);
+    rect(50, height - 100, 150, 50);
+    strokeWeight(1);
+    rectMode(CENTER);
   
   
   
@@ -62,9 +90,5 @@ void game() {
 
 
 void gameClicked() {
-  
-  
-  MODE = PAUSE;
-  
   
 }

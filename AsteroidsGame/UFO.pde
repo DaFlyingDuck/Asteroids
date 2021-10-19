@@ -63,6 +63,8 @@ class UFO extends GameObject {
   
   void show() {
     
+    fill(olive);
+    stroke(olive);
     circle(loc.x,loc.y, size);
     
   }
